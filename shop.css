@@ -1,0 +1,178 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background: linear-gradient(to right,  #f6f2f2,  #f6f2f2);
+    color: #333;
+}
+header {
+background: linear-gradient(to right, #ffffff, #ffffff);
+padding: -3px 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+position: sticky;
+top: 0;
+background-color: white;
+z-index: 1000;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+nav li {
+    margin-right: 20px;
+}
+
+
+nav ul li a:hover {
+    color: gray;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 50px;
+}
+.content {
+    text-align: center;
+}
+h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+.btn {
+    background-color: #e2e0e0;
+    color: #000000;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%);
+    z-index: 1;
+}
+nav {
+margin-left: auto;
+}
+
+
+/*css baru*/
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 800px; /* Lebar maksimum grid */
+    padding: 16px;
+    margin: auto; /* Memusatkan grid */
+  }
+  .card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    width: 100%; /* Kartu mengisi seluruh lebar grid */
+  }
+  .card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card::before {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px; /* Ukuran teks " + " */
+    line-height: 1;
+    color: white; /* Warna teks putih */
+    background-color: rgba(255, 165, 0, 0.8); /* Warna latar belakang orange */
+    border-radius: 50%;
+    width: 60px; /* Lebar area latar belakang */
+    height: 60px; /* Tinggi area latar belakang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  .card:hover::before {
+    opacity: 1;
+  }
+  .card:hover img {
+    filter: brightness(0.6);
+  }
+  .card:hover {
+    transform: scale(1.05); /* Efek sedikit membesar saat dihover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk kesan elegan */
+    z-index: 2; /* Menaikkan kartu di atas saat dihover */
+  }
+
+/* Menu container styling */
+.menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+/* Unordered list styling within the menu */
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+}
+
+/* List item styling within the menu */
+.menu ul li {
+    margin: 5px 0;
+}
+
+/* Anchor link styling within the menu */
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+}
+
+/* Hover effect for the anchor links in the menu */
+.menu ul li a:hover {
+    color: #007bff;
+    background-color: #f0f0f0;
+}

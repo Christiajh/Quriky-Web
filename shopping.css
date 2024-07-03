@@ -1,0 +1,209 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background: linear-gradient(to right,  #f6f2f2,  #f6f2f2);
+    color: #333;
+}
+header {
+background: linear-gradient(to right, #ffffff, #ffffff);
+padding: -3px 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+position: sticky;
+top: 0;
+background-color: white;
+z-index: 1000;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+nav li {
+    margin-right: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 50px;
+}
+.content {
+    text-align: center;
+}
+h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+.btn {
+    background-color: #e2e0e0;
+    color: #000000;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%);
+    z-index: 1;
+}
+nav {
+margin-left: auto;
+}
+
+
+/*css baru*/
+
+.card-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 10px;
+}
+
+.card {
+position: relative; /* Add this */
+background-color: transparent; /* Make the card background transparent */
+padding: 20px;
+border: none; /* Remove the border */
+border-radius: 10px;
+box-shadow: none; /* Remove the box shadow */
+}
+
+.card img {
+width: 100%;
+height: 530px;
+object-fit: cover;
+border-radius: 10px;
+}
+
+.card h2,.card p,.card button {
+position: absolute; /* Make the text and button absolute */
+left: 20px; /* Add some padding */
+top: 150px; /* Move the text and button below the image */
+color: #fff; /* Make the text white */
+}
+
+.card button {
+background-color: #4CAF50;
+border: none;
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+}
+
+.card button:hover {
+background-color: #3e8e41;
+}
+
+.sale-price {
+font-size: 14px;
+color: #999;
+text-decoration: line-through;
+}
+
+/*   */
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+/* Unordered list styling within the menu */
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+}
+
+/* List item styling within the menu */
+.menu ul li {
+    margin: 5px 0;
+}
+
+/* Anchor link styling within the menu */
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+}
+
+/* Hover effect for the anchor links in the menu */
+.menu ul li a:hover {
+    color: #007bff;
+    background-color: #f0f0f0;
+}
+
+
+/*  */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+.card {
+    padding: 30px;
+    text-align: center;
+    border: 3px solid #ddd; /* Light border */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #fff; /* White background */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px; /* Slightly rounded corners for the image */
+}
+
+.card h3 {
+    margin: 15px 0 10px;
+    font-size: 1.2em;
+    color: #333; /* Darker text for the title */
+}
+
+.card p {
+    font-size: 0.9em;
+    color: #666; /* Subtle text color for the paragraph */
+}

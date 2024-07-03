@@ -1,0 +1,70 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #555;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h2 {
+    font-size: 28px;
+    color: #333;
+    margin: 0;
+}
+
+.main-section {
+    padding: 40px 20px;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #ffffff;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Animasi mengetik */
+.animated-text {
+    display: inline-block; /* Teks tetap dalam satu baris */
+    white-space: nowrap; /* Teks tetap dalam satu baris */
+    overflow: hidden; /* Agar teks tidak keluar kotaknya */
+    border-right: .15em solid orange; /* Garis untuk simulasi kursor mengetik */
+    animation: typing 4s steps(30, end);
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}

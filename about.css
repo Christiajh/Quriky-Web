@@ -1,0 +1,174 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background: linear-gradient(to right,  #e2e0e0, #ffffff,#e2e0e0);
+    color: #333;
+}
+header {
+background: linear-gradient(to right, #ffffff, #ffffff,#ffffff);
+padding: -15px -21;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+position: sticky;
+top: 0;
+background-color: white;
+z-index: 1000;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    padding: 0;
+    margin-right: 20px;
+}
+nav li {
+    margin-right: 20px;
+}
+
+nav ul li a:hover {
+    color: gray;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 50px;
+}
+.content {
+    text-align: center;
+}
+h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+.btn {
+    padding: 20px 120px;
+    border-radius: 30px;
+    margin-right: -860px;
+    margin-top: 20px;
+    position: relative; /* Menetapkan posisi relatif untuk animasi */
+    overflow: hidden; /* Menyembunyikan tanda > yang akan muncul */
+    color: #ffffff; /* Warna teks putih */
+    text-decoration: none; /* Menghapus garis bawah default dari tautan */
+    display: inline-block; /* Menjadikan tombol sebagai blok inline */
+    background-color: #000000; /* Warna latar belakang hitam */
+    transition: color 0.3s ease; /* Animasi perubahan warna teks */
+}
+
+.btn::after {
+    content: ">"; /* Menambahkan konten setelah tombol */
+    position: absolute; /* Menetapkan posisi absolut untuk tanda > */
+    top: 50%;
+    right: -30px; /* Mengatur posisi tanda > */
+    transform: translateY(-50%);
+    width: 30px;
+    height: 100%;
+    background-color: transparent; /* Warna latar belakang tanda > */
+    color: #ffffff; /* Warna teks putih untuk tanda > */
+    font-size: 20px; /* Ukuran font tanda > */
+    line-height: 1; /* Menyesuaikan garis tinggi dengan teks */
+    text-align: center; /* Posisi tengah untuk tanda > */
+    transition: transform 0.3s ease; /* Animasi transformasi saat tanda > muncul */
+    transform: translateX(100%); /* Menggeser tanda > keluar dari pandangan */
+}
+
+.btn:hover::after {
+    transform: translateX(0); /* Menggeser tanda > kembali ke posisi awal */
+}
+.shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%);
+    z-index: 1;
+}
+
+
+
+
+
+nav {
+margin-left: auto;
+}
+
+
+/* */
+
+.judul-site {
+font-size: 22px;
+text-align: left;
+margin-top: -280px;
+margin-left: 710px;
+}
+/* CSS untuk list vertikal */
+.daftar-links {
+list-style-type: none; /* Menghilangkan bullet point */
+margin-left: 705px; /* Adjust this value to move to the right */
+margin-top: -10px; 
+padding: 0;
+padding-left: 2px;
+list-style-type: none; /* Menghilangkan bullet point */
+padding-left: 0;
+
+}
+
+.daftar-links li {
+cursor: pointer; /* Mengubah kursor saat diarahkan */
+margin-bottom: 10px;
+padding-left: 5px;
+text-align: left;
+
+}
+
+
+/* */
+
+.email-input {
+border: 2px solid #000; /* Warna bingkai hitam */
+padding: 15px;
+width: 280px; /* Lebar dikurangi untuk memberi ruang untuk geser ke kiri */
+font-size: 16px;
+margin-left: 865px; /* Geser ke kiri sedikit */
+margin-top: -555px; /* Geser ke atas sedikit */
+}
+.email-input::placeholder {
+color: #675e5e; /* Warna abu-abu untuk placeholder */
+}
+
+.notification {
+    position: fixed;
+    top: 50px;
+    right: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
