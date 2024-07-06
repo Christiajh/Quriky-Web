@@ -3,71 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quirky Market Landing</title>
-    <link rel="icon" href="https://ouch-cdn2.icons8.com/Kgnk6P-DZsWP8rcu5vQ_TN7huRR16RKqyQsrrvQLhaY/rs:fit:368:431/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNTc4/LzQyMzE5OTFkLWNi/ZGQtNDRmOC1iNTcy/LTNmZmIzMzMxYzI4/MC5zdmc.png" type="image/x-icon">
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
-   
+    <title>Quirky Market - Quality Products</title>
+
+    <script src="index.js" defer></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: white;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header h2 {
+    margin: 0;
+    margin-left: -1200px; /* Adjust the value as needed */
+    font-size: 2em;
+}
+
+        .main-section {
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+        max-width: 800px;
+        background: #ffffff; /* Put your desired background color */
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        padding: 30px;
+        animation: fadeInUp 1s ease-in-out;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions for smoother hover effects */
+    }
+
+    .container:hover {
+        transform: scale(1.02); /* Scale up a bit on hover */
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Enhance box shadow on hover */
+    }
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .animated-text {
+            font-weight: bold;
+            color: #ff5722;
+            animation: colorChange 4s infinite;
+        }
+        footer {
+            background: white;
+            color: #333;
+            text-align: center;
+            padding: 10px 0;
+            
+            width: 100%;
+            bottom: 0;
+            
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        @keyframes colorChange {
+            0%, 100% {
+                color: #1c1a19;
+            }
+            50% {
+                color: #e2c5bb;
+            }
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #cfc6c3;
+            color: rgb(45, 41, 41);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #20ea0d;
+        }
+        .container:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div>
-            <h2 style="position: relative; top: -10px; right: -55px;">Quirky Market Landing</h2>
-        </div>
-        <nav style="margin-left: auto;">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="product.html">Product</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="register.html">Register</a></li>
-            </ul>
-        </nav>
-        <div>
-            <a href="#" class="ctn">
-                <div class="logo-bg" style="margin-right: 25px;">
-                    <img src="keranjang.png" alt="Shopping Cart" width="26" height="26" />
-                </div>
-                <i class="fas fa-shopping-cart"></i>
-            </a>
-            
-            <div id="notification" class="notification"></div>
-        </div>
+        <h2>Quirky Market</h2>
     </header>
-    <div class="container">
-        <div class="content">
-            <h1 style="font-size: 78px; text-align: left; margin-top: -20px; margin-left: 80px;">Upgrade House <br> With Quirky <br>Market</h1>
-            <p style="text-align: left; font-family: 'Times New Roman', Times, serif; color: #808080; margin-left: 80px;">
-                Find quality items at Quirky. Our curated collection of highly unique<br>
-                brings together the perfect blend of timeless elegance and<br>
-                contemporary charm.
-            </p>
-            <a href="#" class="btn" style="padding: 20px 30px; border-radius: 30px; margin-right: 330px;">View Gallery</a>
+
+    <section class="main-section">
+        <div class="container">
+            <div class="content">
+                <p>Welcome to <span class="animated-text">Quirky Market,</span> your one-stop destination for the latest and greatest tech products. We deliver a unique electronics shopping experience with a focus on quality and innovation. Quirky Market is not just an online store, but also a community that understands how important it is to have access to high-quality electronics to support your modern lifestyle.</p>
+
+                <p>With a diverse collection ranging from premium headphones to the latest gadgets, Quirky Market is committed to fulfilling your technology needs without compromise. Every product we offer has been carefully selected to ensure that you get the best in terms of performance, design, and value.</p>
+                
+                <p>We deliver more than just products - we provide solutions to enhance your everyday technology experience. From easy site navigation to responsive customer service, we strive to make your shopping experience as simple and fulfilling as possible. Purchasing at Quirky Market is not only about getting the products you want, but also about building trust and expanding your horizons about the world of technology. We value every customer and are committed to providing a satisfying and memorable shopping experience.</p>
+                
+                <p>Benefit from the ease of online shopping with intuitive navigation, secure payment processing, and timely delivery. Quirky Market is here to make it easier for you to find electronics that suit your needs and preferences. Make Quirky Market your partner in facing the challenges and capitalizing on the opportunities offered by modern technological developments.</p>
+                
+                <p>Join the Quirky Market community and enjoy exclusive access to the latest deals, special promos, and informative tech-related content. We are not only committed to being your place to shop, but also your source of knowledge and inspiration in the world of technology.</p>
+                
+                <p>Welcome back to Quirky Market, a place where every product has its own story and added value to you. We are always ready to help you find the best solution for your technology needs, because your satisfaction and trust are our top priorities.</p>
+
+                <a href="register.html" class="cta-button">Login</a>
+
+            </div>
         </div>
-        <img decoding="async" src="Sofa.png" alt="Sofa" style="width: 450px; height: auto; margin-left: 120px;">
-    </div>
+    </section>
 
-    <h1 style="font-size: 14px; text-align: left; margin-top: 60px; margin-left: 680px; color: orange;">LOVE YOUR SPACE</h1>
-
-    <h1 style="font-size: 35px; text-align: center; margin-top: 10px; margin-left: 50%; transform: translateX(-50%);">
-        Realise your dream home with the help of personalised design & 
-        selected products of unrivalled 
-        luxury quality, tailored to your style, space and budget
-    </h1>
-    
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/nyaBARDPqGQ" allowfullscreen></iframe>
-    </div>
-    <p style="text-align: left; font-family: 'Times New Roman', Times, serif; color: #808080; margin-left: 682px; margin-top: -230px;">
-        See How We Work
-     </p><br>
-     
-     
- 
-    <footer style="background-color: #ffffff, #e2e0e0,#ffffff; padding: 10px 0; text-align: center;">
-        <hr style="border-top: 1px solid #ccc; margin-bottom: 20px;"><br>
-        <p style="font-size: 16px; color:#675e5e;">Copyright © 2024 Divi. All Rights Reserved.</p><br>
-    </footer> 
-
+    <footer>
+        <p>&copy; 2024 Quirky Market. All rights reserved.</p>
+    </footer>
 </body>
 </html>

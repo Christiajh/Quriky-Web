@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quirky</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 0px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .ctn {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .logo-bg {
+          
+            border-radius: 50%;
+            padding: 5px;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 30px;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+        }
+        .menu ul li {
+            margin: 5px 0;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .container {
+            padding: 20px;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .item-details {
+            display: flex;
+            align-items: center;
+        }
+        .delete-btn {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function showMenu() {
+            document.getElementById('menu').style.display = 'block';
+        }
+        function checkMouseLeave(event) {
+            const menu = document.getElementById('menu');
+            if (!menu.contains(event.relatedTarget)) {
+                menu.style.display = 'none';
+            }
+        }
+        function keepMenu() {
+            document.getElementById('menu').style.display = 'block';
+        }
+        function deleteItem(itemId) {
+            const item = document.getElementById(itemId);
+            item.remove();
+            alert('Item deleted successfully.');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div>
+            <h2 style="position: relative; top: -2px; right: -25px;">Quirky Market Delete Item</h2>
+        </div>
+        <nav style="margin-left: auto;">
+            <ul>
+                <li style="margin-left: -50px;"><a href="shop.html">Back</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="ctn" onmouseover="showMenu()" onmouseout="checkMouseLeave(event)">
+            <div class="logo-bg" style="margin-right: 25px;">
+                <img src="keranjang.png" alt="Shopping Cart" width="26" height="26" />
+            </div>
+            <i class="fas fa-shopping-cart"></i>
+            <div id="menu" class="menu" onmouseover="keepMenu()" onmouseout="checkMouseLeave(event)">
+                <ul>
+                    <li class="menu-item"><a href="shopping.html" style="color: #333;">Shopping Cart</a></li>
+                    <li class="menu-item"><a href="delete.html" style="color: #333;">Delete items</a></li>
+                </ul>
+            </div>
+        </a>
+    </header>
+    <div class="container">
+        <h2>Delete Items</h2>
+        <div id="item1" class="item">
+            <div class="item-details">
+                <img src="item1.jpg" alt="Item 1">
+                <p>Item 1 Description</p>
+            </div>
+            <button class="delete-btn" onclick="deleteItem('item1')">Delete</button>
+        </div>
+        <div id="item2" class="item">
+            <div class="item-details">
+                <img src="item2.jpg" alt="Item 2">
+                <p>Item 2 Description</p>
+            </div>
+            <button class="delete-btn" onclick="deleteItem('item2')">Delete</button>
+        </div>
+        <!-- Add more items as needed -->
+    </div>
+</body>
+</html>

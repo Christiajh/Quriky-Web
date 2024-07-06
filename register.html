@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -10,43 +11,55 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #708090; /* Lighter background for better contrast */
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
         }
 
         .login-container {
-            background-color: 	#C0C0C0;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(149, 200, 87, 0.1);
+            background-color: #ffffff;
+            width: 320px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
         .login-container h2 {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             color: #333;
             font-size: 24px;
         }
 
         .login-container input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
+            width: calc(100% - 30px);
+            padding: 12px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-container .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            cursor: pointer;
+            color: #333;
         }
 
         .login-container button {
-            width: 100%;
+            width: calc(100% - 30px);
             padding: 15px;
             background-color: #2F4F4F;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box;
         }
 
         .login-container button:hover {
@@ -56,30 +69,131 @@
         .error-message {
             color: red;
             margin-top: 10px;
+            text-align: left;
         }
 
-        .background-image {
+        .loading-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.1;
-            z-index: -1;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
         }
+
+        .loading-icon {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .password-toggle svg {
+    width: 30px; /* Ukuran awal ikon */
+    height: 30px; /* Ukuran awal ikon */
+    transition: all 0.3s ease; /* Efek transisi agar perubahan ukuran halus */
+}
+
+.password-toggle.clicked svg {
+    transform: scale(0.8); /* Contoh transformasi ukuran saat diklik */
+}
+
     </style>
 </head>
 <body>
     <div class="login-container">
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-icon"></div>
+        </div>
         <h2>Login</h2>
         <form id="loginForm">
             <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
+            <div style="position: relative;">
+                <input type="password" id="password" placeholder="Password" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility()" style="vertical-align: middle; margin-top: -34px;">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 13.64 19.42 15.09 18.42 16.25L16.17 14H16C14.35 14 13 12.65 13 11V10H11V11C11 13.76 13.24 16 16 16C16.34 16 16.67 15.97 17 15.92L14.75 13.67C14.31 13.89 13.68 14 13 14H12V16H13.17L9.22 19.95C9.72 19.99 10.36 20 11 20H12ZM12 6C9.79 6 8 7.79 8 10C8 10.66 8.19 11.29 8.5 11.86L10.17 9.29C10.6 8.96 11.27 8.91 11.76 9.16L13.59 7.74C12.78 7.26 11.78 7 10.67 7C10.18 7 9.7 7.07 9.24 7.2L11.12 9.08C11.66 9.04 12.32 9.04 12.85 9.17L14.47 6.85C13.94 6.33 13.03 6 12 6Z" fill="#333"/>
+                        <circle cx="12" cy="12" r="4" fill="#333"/> <!-- Ini adalah bentuk mata -->
+                        <circle cx="12" cy="12" r="1" fill="#fff"/> <!-- Pupil atau titik di mata -->
+                    </svg>
+                </span>
+                
+                
+                
+                </span>
+            </div>
             <button type="submit">Login</button>
             <div id="error-message" class="error-message"></div>
         </form>
     </div>
 
-    <script src="register.js"></script>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('password');
+            var passwordToggle = document.querySelector('.password-toggle');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 13.64 19.42 15.09 18.42 16.25L16.17 14H16C14.35 14 13 12.65 13 11V10H11V11C11 13.76 13.24 16 16 16C16.34 16 16.67 15.97 17 15.92L14.75 13.67C14.31 13.89 13.68 14 13 14H12V16H13.17L9.22 19.95C9.72 19.99 10.36 20 11 20H12ZM12 6C9.79 6 8 7.79 8 10C8 10.66 8.19 11.29 8.5 11.86L10.17 9.29C10.6 8.96 11.27 8.91 11.76 9.16L13.59 7.74C12.78 7.26 11.78 7 10.67 7C10.18 7 9.7 7.07 9.24 7.2L11.12 9.08C11.66 9.04 12.32 9.04 12.85 9.17L14.47 6.85C13.94 6.33 13.03 6 12 6Z" fill="#333"/></svg>';
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 13.64 19.42 15.09 18.42 16.25L16.17 14H16C14.35 14 13 12.65 13 11V10H11V11C11 13.76 13.24 16 16 16C16.34 16 16.67 15.97 17 15.92L14.75 13.67C14.31 13.89 13.68 14 13 14H12V16H13.17L9.22 19.95C9.72 19.99 10.36 20 11 20H12ZM12 6C9.79 6 8 7.79 8 10C8 10.66 8.19 11.29 8.5 11.86L10.17 9.29C10.6 8.96 11.27 8.91 11.76 9.16L13.59 7.74C12.78 7.26 11.78 7 10.67 7C10.18 7 9.7 7.07 9.24 7.2L11.12 9.08C11.66 9.04 12.32 9.04 12.85 9.17L14.47 6.85C13.94 6.33 13.03 6 12 6Z" fill="#333"/></svg>';
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Hindari pengiriman form
+            
+            // Ambil nilai dari input username dan password
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Validasi username dan password (contoh sederhana)
+            if (username === 'Elkana' && password === 'Sitorus') {
+                document.getElementById('error-message').innerText = 'Login berhasil!'; // Tampilkan pesan berhasil
+                showLoading(); // Tampilkan animasi loading
+                setTimeout(function() {
+                    // Simulasi proses login berhasil, redirect ke halaman index.html
+                    hideLoading(); // Sembunyikan animasi loading setelah selesai
+                    window.location.href = 'awall.html'; // Ganti dengan halaman yang dituju setelah login berhasil
+                }, 2000); // Ganti dengan waktu yang diperlukan untuk proses login
+            } else {
+                document.getElementById('error-message').innerText = 'Username atau password salah.';
+            }
+        });
+
+        function showLoading() {
+            document.getElementById('loadingOverlay').style.display = 'flex'; // Tampilkan overlay loading
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').style.display = 'none'; // Sembunyikan overlay loading
+        }
+
+        
+
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+
+
+    </script>
 </body>
 </html>

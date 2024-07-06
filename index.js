@@ -1,62 +1,45 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var logoLink = document.querySelector('.ctn');
-    var notification = document.getElementById('notification');
-    
-    logoLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        notification.innerText = "Functionality is only available on the shop page";
-        notification.style.display = 'block';
-        setTimeout(function() {
-            notification.style.display = 'none';
-        }, 1000); // Menghilangkan notifikasi setelah 3 detik
-    });
-});
-
+// Mencegah klik kanan untuk memblokir menu konteks
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
 
-///////////////////////////////////////
-// function showNotification(message) {
-//     var notification = document.getElementById('notification');
-//     notification.innerText = message;
-//     notification.style.display = 'block';
-//     setTimeout(function() {
-//         notification.style.display = 'none'; // Sembunyikan notifikasi setelah beberapa detik
-//     }, 3000); // Durasi notifikasi ditampilkan (misalnya 3 detik)
-// }
+// Fungsi untuk menangani submit form login
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Hindari pengiriman form
+    
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
 
-// // Ambil elemen tautan Register
-// var registerLink = document.getElementById('register-link');
+    // Validasi username dan password (contoh sederhana)
+    if (username === 'Elkana' && password === 'Sitorus') {
+        document.getElementById('error-message').innerText = 'Login berhasil!';
+        showLoading();
+        setTimeout(function() {
+            hideLoading();
+            window.location.href = 'index.html'; // Redirect ke halaman setelah login
+        }, 2000);
+    } else {
+        document.getElementById('error-message').innerText = 'Username atau password salah.';
+    }
+});
 
-// // Tambahkan event listener untuk tautan Register
-// registerLink.addEventListener('click', function(event) {
-//     // Cek apakah pengguna sudah login
-//     var isLoggedIn = localStorage.getItem('isLoggedIn');
+// Fungsi untuk menampilkan overlay loading
+function showLoading() {
+    document.getElementById('loadingOverlay').style.display = 'flex';
+}
 
-//     if (!isLoggedIn || isLoggedIn !== 'true') {
-//         // Jika pengguna belum login, tampilkan notifikasi
-//         showNotification('You must login first!');
-//         event.preventDefault(); // Hentikan aksi bawaan dari tautan Register
-//     } else {
-//         // Jika sudah login, arahkan ke halaman register.html
-//         window.location.href = 'register.html'; // Sesuaikan dengan path dan nama file yang benar
-//     }
-// });
+// Fungsi untuk menyembunyikan overlay loading
+function hideLoading() {
+    document.getElementById('loadingOverlay').style.display = 'none';
+}
 
-// // Otomatiskan pengalihan navigasi untuk halaman lain
-// var navigationLinks = document.querySelectorAll('nav a');
+// Fungsi untuk mengarahkan kembali ke halaman login jika mencoba mengakses register.html tanpa login
+function checkLoginStatus() {
+    var isLoggedIn = /* logika untuk mengecek apakah sudah login */ false; // Ganti dengan logika sesuai kebutuhan
+    if (!isLoggedIn) {
+        window.location.href = 'register.html'; // Ganti dengan halaman login Anda
+    }
+}
 
-// navigationLinks.forEach(function(link) {
-//     link.addEventListener('click', function(event) {
-//         var isLoggedIn = localStorage.getItem('isLoggedIn');
-
-//         if (!isLoggedIn || isLoggedIn !== 'true') {
-//             event.preventDefault(); // Hentikan aksi bawaan dari tautan navigasi lainnya
-//             showNotification('You must login first!');
-//         } else {
-//             // Jika sudah login, lanjutkan ke halaman yang dituju
-//             // Contoh: window.location.href = link.getAttribute('href');
-//         }
-//     });
-// });
+// Panggil fungsi checkLoginStatus pada saat halaman register.html dimuat
+checkLoginStatus();
